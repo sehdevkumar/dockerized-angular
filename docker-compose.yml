@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+      firstapp:
+          build: .
+          ports:
+              -  "8000:4200"
+          command: sh -c " ng serve --host 0.0.0.0"
+          volumes:
+              - "/app/node_modules"
+              - ".:/app"
