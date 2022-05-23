@@ -1,27 +1,63 @@
-# ApplicationVersion1
+step to run this app using the docker-compose 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.17.
 
-## Development server
+linux:
+    1 . sudo docker-compose up (to up the container)
+    2 . sudo docker-compose down (to stop or down the container)
+    
+ =======================================================================================
+ // Dockerfile (basic image)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# choose base image to build off of
+FROM node:14.18.3-alpine
 
-## Code scaffolding
+WORKDIR /app
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+COPY package.json  ./
 
-## Build
+RUN npm install -g npm@latest-7; \
+  npm install -g @angular/cli@v11-lts; \
+  npm install;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+COPY . .
+EXPOSE 4200
 
-## Running unit tests
+# Invoke app server.
+CMD npm run ng serve -- --open --host 0.0.0.0 --port 4200 --poll 500
+===========================================================================================
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+// docker-compose.yml
+version: "3.5"
+services:
+      firstapp:
+          build: .
+          ports:
+              -  "8000:4200"
+          command: sh -c " ng serve --host 0.0.0.0"
+          volumes:
+              - "/app/node_modules"
+              - ".:/app"
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+=========================================================================================================================
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+ 
+ 
+  
+ 
+    
+    
+    
+    
+    
+    
+    
+   
+    
+
+
+
+
