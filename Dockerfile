@@ -13,4 +13,4 @@ COPY . .
 EXPOSE 4200
 
 # Invoke app server.
-CMD npm run ng serve -- --open --host 0.0.0.0 --port 4200 --poll 500
+CMD npm run ng serve
