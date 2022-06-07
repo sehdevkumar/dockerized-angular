@@ -1,7 +1,5 @@
 step to run this app using the docker-compose 
 
-test23
-
 
 linux:
     1 . sudo docker-compose up (to up the container)
