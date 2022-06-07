@@ -1,5 +1,5 @@
 step to run this app using the docker-compose 
-
+i have changed
 linux:
     1 . sudo docker-compose up (to up the container)
     2 . sudo docker-compose down (to stop or down the container)
