@@ -1,5 +1,4 @@
 step to run this app using the docker-compose 
-new changes done here
 
 linux:
     1 . sudo docker-compose up (to up the container)
