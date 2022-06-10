@@ -12,7 +12,7 @@ services:
       secondapp:
           build: .
           ports:
-              -  "8080:4200"
+              -  "8081:4200"
           command: sh -c " ng serve -o --host 0.0.0.0"
           volumes:
               - "/app/node_modules"
